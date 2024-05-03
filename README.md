@@ -25,6 +25,7 @@ Y ya tienes el backend funcionando
 > Cada vez que el cierras la terminal, el entorno virtual de python se desactiva. Para ello tendrás que ejecutar el paso 3 una y otra vez que inicies el backend desde una nueva terminal.
 
 Stack:
+- LLM: [Gemini](https://ai.google.dev/gemini-api/docs/get-started/python)
 - Base de datos: [Qdrant](https://qdrant.tech/documentation/) (leer documentación)
 - Framework para API: [FastAPI](https://qdrant.tech/documentation/)
 - Lenguaje: Python
