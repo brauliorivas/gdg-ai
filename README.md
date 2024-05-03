@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 Con esto ya se puede iniciar el backend en cualquier momento. Para iniciar el server:
 ```sh
-fastapi dev main.py
+uvicorn main:app --reload
 ```
 Y ya tienes el backend funcionando
 > Cada vez que el cierras la terminal, el entorno virtual de python se desactiva. Para ello tendrás que ejecutar el paso 3 una y otra vez que inicies el backend desde una nueva terminal.

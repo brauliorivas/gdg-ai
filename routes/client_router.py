@@ -5,7 +5,7 @@ def create_client_router(client_model):
     router = APIRouter()
     controller = ClientController(client_model)
     
-    @router.get("/client/{id}")
+    @router.get("/{id}")
     def get(id: int):
         return controller.get(id)
     
