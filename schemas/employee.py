@@ -1,7 +1,15 @@
 from pydantic import BaseModel
+from typing import List, Dict, Any
 
-class Client(BaseModel):
+class Employee(BaseModel):
     name: str
     skillset: List[str]
-    background: List[float] #embedding
-    cv: List[float] #embedding
+    background: str
+    cv: str
+    
+class EmployeeQdrant(BaseModel):
+    name: str
+    skillset: List[str]
+    background_vector: List[float]
+    cv_vector: List[float]
+    
