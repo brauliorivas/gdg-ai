@@ -24,6 +24,11 @@ uvicorn main:app --reload
 Y ya tienes el backend funcionando
 > Cada vez que el cierras la terminal, el entorno virtual de python se desactiva. Para ello tendrás que ejecutar el paso 3 una y otra vez que inicies el backend desde una nueva terminal.
 
+Stack:
+- Base de datos: [Qdrant](https://qdrant.tech/documentation/) (leer documentación)
+- Framework para API: [FastAPI](https://qdrant.tech/documentation/)
+- Lenguaje: Python
+
 ### Frontend
 Para iniciar el frontend por primera vez
 1. Moverse a la carpeta web `cd web`
