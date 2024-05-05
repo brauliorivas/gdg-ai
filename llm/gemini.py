@@ -35,7 +35,7 @@ class Gemini:
             content=document,
             task_type="retrieval_document",
             title="Qdrant x Gemini"
-        )
+        )["embedding"]
         
     
     """

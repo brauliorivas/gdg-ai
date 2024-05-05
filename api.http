@@ -1,0 +1,12 @@
+### Create new client (company that wants to register)
+POST http://localhost:8000/clients/
+Content-Type: application/json
+
+{
+    "name": "Medicity",
+    "industry": "Health",
+    "background": "Founded in 2005, our pharmacy company, known as Medicity Inc., emerged from a strategic partnership between two prominent pharmaceutical distributors, MedSupply and HealthConnect. Headquartered in the bustling city of New York, Medicity Inc. has established itself as a leading provider of pharmaceutical products and essential health items. With a strong focus on customer satisfaction and well-being, Medicity Inc. operates under a mission to enhance the health and quality of life of our customers. Our commitment to integrity, efficiency, and exceptional service drives us to continuously deliver high-quality products and services to meet the diverse needs of our clientele. Driven by a vision to become a trusted leader in the pharmaceutical industry, Medicity Inc. aims to revolutionize healthcare by offering innovative solutions and personalized care. We strive to cultivate a culture of excellence, innovation, and continuous improvement, empowering our team members to make a meaningful impact on the health and wellness of our community. At Medicity Inc., we uphold a philosophy centered around respect, collaboration, proactivity, and professionalism. By maintaining the highest standards of quality and customer care, we aim to build lasting relationships with our customers and contribute to the advancement of healthcare worldwide."
+}
+
+### Get client by id
+GET http://localhost:8000/clients/56c8bac8-5292-4c4a-89b4-d88f8fbc05e7

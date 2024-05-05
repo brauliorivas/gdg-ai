@@ -12,6 +12,7 @@ class Chat(BaseModel):
     messages: List[Dict[str, Any]]
     
 class ClientQdrant(BaseModel):
+    id: str
     name: str
     industry: str
     background_vector: List[float] 
