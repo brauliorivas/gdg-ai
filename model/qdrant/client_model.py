@@ -58,8 +58,8 @@ class ClientModel:
                 
         struct = PointStruct(
             id=id,
-            vector=embedding,
-            payload=payload
+            payload=payload,
+            vector=embedding
         )
         
         points = [struct]

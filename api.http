@@ -10,3 +10,6 @@ Content-Type: application/json
 
 ### Get client by id
 GET http://localhost:8000/clients/56c8bac8-5292-4c4a-89b4-d88f8fbc05e7
+
+### Create a new employee (developer for the consulting firm)
+POST http://localhost:8000/employees/
