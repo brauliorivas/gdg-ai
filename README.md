@@ -10,6 +10,11 @@ Para iniciar por primera vez el backend
 python3 -m venv venv
 ```
 3. Activar el entorno virtual 
+En Windows:
+```sh
+.\myenv\Scripts\activate
+```
+En macOS y Linux:
 ```sh
 source venv/bin/activate
 ```
