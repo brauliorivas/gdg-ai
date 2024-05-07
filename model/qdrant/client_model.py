@@ -50,7 +50,7 @@ class ClientModel:
     
     def create(self, client: Client):
         id = str(uuid.uuid4())
-        embedding = gemini.embed_document(client.background)
+        embedding = gemini.embed_query(client.background)
         payload = {
             "name": client.name,
             "industry": client.industry,
@@ -67,6 +67,35 @@ class ClientModel:
         qdrant_connection.upsert(self.collection_name, points)
         
         return self.get(id)
+    
+    def chat(self, chat: Chat) -> Chat:
+        title = chat.title
+        created = chat.created
+
+        messages = [] 
+               
+        if (len(chat.messages) == 1): # If the chat just started, and user sent his first query
+            messages.append({
+                "role": "user",
+                "parts": ["Hi, today you have to help me with something very important. I'm an employee/company looking for a software developer in an IT consulting company. I have a basic idea of what I want to build, but I need help with extending my list of requirements. Can you help me with that? You will have to ask me multiple questions in order to search for a software developer that match my requirements. I'll start by writing my initial requirements and then you can ask me. PLEASE NOTE: When you think that you have enough information, you can tell me that you are ready to recommend me some software developers. ¡Just tell me to search, don't do anything else! You should answer \"You are ready to search\" Ask a maximum of 3 questions."]
+            })
+            messages.append({
+                "role": "model",
+                "parts": ["Alright! I'm going to help you with that. I'm going to wait for your intial requirements and then I'll ask you a few questions to understand your requirements better. I'll ask you at most 3 questions and tell that I'm ready to recommend you some software developers."]
+            })
+            messages.append(chat.messages[0])
+        else:
+            messages = chat.messages
+            
+        newMessages = gemini.chat(messages)
+        
+        newChat = Chat(
+            title=title,
+            created=created,
+            messages=newMessages
+        )
+        
+        return newChat
         
     
     def update(self, id: int, chat: Chat):

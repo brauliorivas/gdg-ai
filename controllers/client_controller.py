@@ -14,4 +14,6 @@ class ClientController:
     
     def update(self, id: int, chat: Chat) -> ClientQdrant:
         return self.client_model.update(id, chat)
-        
+    
+    def chat(self, chat: Chat) -> Chat:
+        return self.client_model.chat(chat)

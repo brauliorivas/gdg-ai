@@ -18,4 +18,8 @@ def create_client_router(client_model):
     def update_client(id: str, chat: Chat) -> ClientQdrant:
         return controller.update(id, chat)
     
+    @router.post("/chat")
+    def chat_client(chat: Chat) -> Chat: 
+        return controller.chat(chat)
+    
     return router

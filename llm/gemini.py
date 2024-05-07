@@ -48,7 +48,6 @@ class Gemini:
             model="models/embedding-001",
             content=query,
             task_type="retrieval_query",
-            title="Qdrant x Gemini"
         )["embedding"]
         
     """
@@ -61,7 +60,7 @@ class Gemini:
     Args:
         history: list of dictionaries. Default is an empty list.
     """
-    def chat(history: list = []):
+    def chat(self, history):
         model = genai.GenerativeModel("gemini-pro")
         response = model.generate_content(history)
         history.append({
