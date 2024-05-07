@@ -98,5 +98,19 @@ class ClientModel:
         return newChat
         
     
-    def update(self, id: int, chat: Chat):
-        pass
+    def update(self, id: int, chat: Chat) -> ClientQdrant:
+        client = self.get(id)
+        
+        client.history.append(chat)
+        
+        qdrant_connection.set_payload(
+            collection_name=self.collection_name,
+            payload={
+                "history": client.history
+            },
+            points=[id]
+        )
+        
+        return client
+        
+        

@@ -53,6 +53,53 @@ Content-Type: application/json
   ]
 }
 
+### Save chat of a client
+PATCH http://localhost:8000/clients/29ad9a0f-8348-45a3-89e6-14cc6572f094
+Content-Type: application/json
+
+{
+  "title": "A few initial words",
+  "created": "2024-05-06",
+  "messages": [
+    {
+      "role": "user",
+      "parts": [
+        "Hi, today you have to help me with something very important. I'm an employee/company looking for a software developer in an IT consulting company. I have a basic idea of what I want to build, but I need help with extending my list of requirements. Can you help me with that? You will have to ask me multiple questions in order to search for a software developer that match my requirements. I'll start by writing my initial requirements and then you can ask me. PLEASE NOTE: When you think that you have enough information, you can tell me that you are ready to recommend me some software developers. ¡Just tell me to search, don't do anything else! You should answer \"You are ready to search\" Ask a maximum of 3 questions."
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        "Alright! I'm going to help you with that. I'm going to wait for your intial requirements and then I'll ask you a few questions to understand your requirements better. I'll ask you at most 3 questions and tell that I'm ready to recommend you some software developers."
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        "I want to build a web app"
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        "Sure, here are 3 questions to help me understand your requirements better:\n\n1. What is the purpose of your web app? (e.g., e-commerce, social networking, content management)\n2. What are the key features and functionalities that you want to include in your web app?\n3. What technologies and frameworks are you considering for your web app's development? (e.g., React, Angular, Node.js, Python)\n\nOnce I have your answers to these questions, I'll be able to recommend some software developers who match your requirements."
+      ]
+    },
+    {
+      "role": "user",
+      "parts": [
+        "The purpose of my web app is to provide an online platform for users to search and book medical appointments with healthcare providers. The key features and functionalities I want to include are user registration and login, search functionality by location and specialty, appointment scheduling, payment processing, and user reviews and ratings. I'm considering using React.js for the front-end, Node.js for the back-end, and MongoDB for the database."
+      ]
+    },
+    {
+      "role": "model",
+      "parts": [
+        "You are ready to search"
+      ]
+    }
+  ]
+}
+
 ###############################################
 
 ### EMPLOYEE ###
