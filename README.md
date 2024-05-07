@@ -22,6 +22,7 @@ source venv/bin/activate
 4. Instalar las dependencias de python
 
 En Windows:
+
 ![Descripción de la imagen](instruccion.jpg)
 ```sh
 pip install -r requirements.txt
