@@ -4,6 +4,10 @@
 ### Get client by id
 GET http://localhost:8000/clients/29ad9a0f-8348-45a3-89e6-14cc6572f094
 
+
+### Get client by name
+GET http://localhost:8000/clients/?name=Medicity
+
 ### Create new client (company that wants to register)
 POST http://localhost:8000/clients/
 Content-Type: application/json

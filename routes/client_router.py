@@ -14,6 +14,10 @@ def create_client_router(client_model):
     def get(id: str) -> ClientQdrant:
         return controller.get(id)
     
+    @router.get("/")
+    def get_by_name(name: str) -> ClientQdrant:
+        return controller.get_by_name(name)
+    
     @router.patch("/{id}")
     def update_client(id: str, chat: Chat) -> ClientQdrant:
         return controller.update(id, chat)
