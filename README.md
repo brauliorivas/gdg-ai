@@ -9,7 +9,8 @@ Para iniciar por primera vez el backend
 ```sh
 python3 -m venv venv
 ```
-3. Activar el entorno virtual 
+3. Activar el entorno virtual
+
 En Windows:
 ```sh
 .\myenv\Scripts\activate
