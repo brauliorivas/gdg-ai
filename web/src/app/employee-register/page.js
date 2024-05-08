@@ -14,34 +14,38 @@ export default function EmployeeRegister() {
   const [cv, setCv] = useState("");
 
   return (
-    <main>
+    <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
-      <div>
+      <div className="mt-5">
         <div>
           <InputLabel prompt="What's your name?" />
           <TextInput value={name} setValue={setName} />
         </div>
-        <div>
+        <div className="mt-5">
           <InputLabel prompt="What are your skills?" />
           <MultipleTextInput values={skillset} setValues={setSkillset} />
         </div>
-        <div>
+        <div className="mt-5">
           <InputLabel prompt="Describe yourself" />
           <TextInput value={background} setValue={setBackground} />
         </div>
-        <div>
+        <div className="flex mt-5 items-center">
           <InputLabel prompt="Upload your CV" />
+          <div className="mx-5">
           <Button
+            variant="destructive"
             onClick={() => {
               console.log("Upload");
             }}
           >
             Upload
           </Button>
+          </div>
         </div>
       </div>
-      <div>
+      <div className="m-5">
         <Button
+          variant="destructive"
           onClick={() => {
             console.log("Register");
           }}

@@ -13,23 +13,23 @@ export default function CompanyRegister() {
   const [background, setBackground] = useState("");
 
   return (
-    <main>
+    <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
       <div>
-        <div>
+        <div className="mt-5">
           <InputLabel prompt="What's your company name?" />
           <TextInput value={name} setValue={setName} />
         </div>
-        <div>
+        <div className="mt-5">
           <InputLabel prompt="What industry are you in?" />
           <Combobox selected={industry} setSelected={setIndustry} />
         </div>
-        <div>
+        <div className="mt-5">
           <InputLabel prompt="Describe your company" />
           <TextInput value={background} setValue={setBackground} />
         </div>
       </div>
-      <div>
+      <div className="m-5">
         <Button
           onClick={() => {
             console.log("Register");

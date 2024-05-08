@@ -7,7 +7,7 @@ export default function MultipleTextInput({ values, setValues}) {
   };
   
     return (
-    <div>
+    <div className="border-black border-b-2  p-2 w-full outline-none">
         {values.map((value, index) => (
             <div key={index}>
                 {value}

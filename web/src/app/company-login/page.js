@@ -21,15 +21,15 @@ export default function CompanyLogin() {
   };
 
   return (
-    <main>
+    <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
-      <div>
-        <div>
+      <div  className="mt-5">
+        <div >
           <InputLabel prompt="Write your company name" />
           <TextInput value={name} setValue={setName} />
         </div>
-      </div>
-      <div>
+      </div >
+      <div className="mt-20">
         <Button
           onClick={(e) => {
             e.preventDefault();
