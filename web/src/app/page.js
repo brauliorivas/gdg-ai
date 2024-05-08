@@ -6,9 +6,9 @@ import Puente from "@/components/Puente";
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
-      <div>
+      <div className="text-center mt-5">
         <p>El Puente is an IT Consulting firm based in SF, CA.</p>
         <p>Are you a company looking for developers?</p>
         <p>Register as Enterprise</p>
@@ -18,14 +18,14 @@ export default function Home() {
       <div>
         <p>Register</p>
       </div>
-      <div>
+      <div className="flex">
         <Register type="Developer" link="/employee-register" />
         <Register type="Enterprise" link="/company-register" />
       </div>
       <div>
         <p>
           Did your company already registered?{" "}
-          <Link href="/company-login">Login</Link>
+          <Link href="/company-login"><span className="text-[rgb(252,118,65)]">Login</span></Link>
         </p>
       </div>
       {/* <NavBar /> */}
