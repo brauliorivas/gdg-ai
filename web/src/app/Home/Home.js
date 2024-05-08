@@ -1,4 +1,4 @@
-export function Chat(){
+export function Home(){
     return(
         <div className="flex border border-sky-500 p-2">
             <h1> Chat bot</h1>
