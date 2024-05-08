@@ -1,5 +1,5 @@
 from .connection import QdrantConnection
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import VectorParams, Distance, PointStruct, Filter, FieldCondition, MatchValue
 from schemas.client import Client, ClientQdrant, Chat
 from llm.gemini import Gemini
 import uuid
@@ -98,5 +98,43 @@ class ClientModel:
         return newChat
         
     
-    def update(self, id: int, chat: Chat):
-        pass
+    def update(self, id: int, chat: Chat) -> ClientQdrant:
+        client = self.get(id)
+        
+        client.history.append(chat)
+        
+        qdrant_connection.set_payload(
+            collection_name=self.collection_name,
+            payload={
+                "history": client.history
+            },
+            points=[id]
+        )
+        
+        return client
+        
+    def get_by_name(self, name: str) -> ClientQdrant:
+        point = qdrant_connection.scroll(
+            collection_name=self.collection_name,
+            scroll_filter=Filter(
+                must=[
+                    FieldCondition(
+                        key="name",
+                        match=MatchValue(
+                            value=name
+                        )
+                    )
+                ]
+            ),
+            with_payload=True,
+            with_vectors=True
+        )[0][0]
+        
+        return ClientQdrant(
+            id = point.id,
+            name = point.payload.get("name"),
+            industry = point.payload.get("industry"),
+            background_vector = point.vector,
+            history = point.payload.get("history", [])
+        )
+        
