@@ -131,7 +131,7 @@ class ClientModel:
         )[0][0]
         
         return ClientQdrant(
-            id = point.id,
+            id = point.id.replace(".action", ""),
             name = point.payload.get("name"),
             industry = point.payload.get("industry"),
             background_vector = point.vector,
