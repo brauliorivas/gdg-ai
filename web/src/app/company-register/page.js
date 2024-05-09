@@ -6,11 +6,37 @@ import InputLabel from "@/components/InputLabel";
 import TextInput from "@/components/TextInput";
 import { Combobox } from "@/components/Combobox";
 import { Button } from "@/components/ui/button";
+import { redirectUtil } from "@/utils/redirect";
+
+const API_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8000"
+    : process.env.NEXT_PUBLIC_API_URL;
 
 export default function CompanyRegister() {
   const [name, setName] = useState("");
   const [industry, setIndustry] = useState("");
   const [background, setBackground] = useState("");
+
+  async function register() {
+    const requestObject = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        industry,
+        background,
+      }),
+    };
+
+    const response = await fetch(`${API_URL}/clients/`, requestObject);
+
+    if (response.ok) {
+      redirectUtil("/company-login");
+    }
+  }
 
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
@@ -32,7 +58,7 @@ export default function CompanyRegister() {
       <div className="m-5">
         <Button
           onClick={() => {
-            console.log("Register");
+            register();
           }}
         >
           Register

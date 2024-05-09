@@ -5,7 +5,7 @@ import Puente from "@/components/Puente";
 import InputLabel from "@/components/InputLabel";
 import TextInput from "@/components/TextInput";
 import { Button } from "@/components/ui/button";
-import { navigate } from "./actions";
+import { redirectUtil } from "@/utils/redirect";
 
 const API_URL =
   process.env.NODE_ENV === "development"
@@ -20,7 +20,7 @@ export default function CompanyLogin() {
     const data = await response.json();
 
     const id = data.id;
-    navigate(id);
+    redirectUtil(`/company/${id}`);
   };
 
   return (
