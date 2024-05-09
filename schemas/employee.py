@@ -13,7 +13,8 @@ class EmployeeQdrant(BaseModel):
     background: str
     background_vector: List[float]
     cv_vector: List[float]
-    score: Optional[float]
+    score_cv: Optional[float]
+    score_background: Optional[float]
     
 class EmployeeRequest(BaseModel):
     chat: Chat

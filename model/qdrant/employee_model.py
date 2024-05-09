@@ -136,16 +136,16 @@ class EmployeeModel:
         for employee in search_by_cv:
             employee_cv_score = employee.score
             employee_background_score = [employee for employee in search_by_background if employee.id == employee.id][0].score
-            employee.score = employee_cv_score + employee_background_score
-            results.append(employee)
-                
-        return [EmployeeQdrant(
+            e = EmployeeQdrant(
                 id=employee.id,
                 name=employee.payload.get("name"),
                 skillset=employee.payload.get("skillset"),
                 background=employee.payload.get("background"),
                 background_vector=employee.vector.get("background"),
                 cv_vector=employee.vector.get("cv"),
-                score=employee.score
-            ) for employee in sorted(results, key=lambda x: x.score, reverse=True)
-        ]
+                score_cv=employee_cv_score,
+                score_background=employee_background_score
+            )
+            results.append(e)
+                
+        return results

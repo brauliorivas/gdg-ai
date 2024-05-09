@@ -1,7 +1,7 @@
 export default function MultipleTextInput({ values, setValues}) {
   const handleKeyDown = (event) => {
     if (event.key === " " || event.key === "Enter") {
-      setValues([...values, event.target.value]);
+      setValues([...values, event.target.value.trim()]);
       event.target.value = "";
     }
   };

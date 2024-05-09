@@ -7,7 +7,10 @@ import TextInput from "@/components/TextInput";
 import { Button } from "@/components/ui/button";
 import { navigate } from "./actions";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8000"
+    : process.env.NEXT_PUBLIC_API_URL;
 
 export default function CompanyLogin() {
   const [name, setName] = useState("");
@@ -23,12 +26,12 @@ export default function CompanyLogin() {
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
-      <div  className="mt-5">
-        <div >
+      <div className="mt-5">
+        <div>
           <InputLabel prompt="Write your company name" />
           <TextInput value={name} setValue={setName} />
         </div>
-      </div >
+      </div>
       <div className="mt-20">
         <Button
           onClick={(e) => {
