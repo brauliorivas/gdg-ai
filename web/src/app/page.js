@@ -3,19 +3,22 @@ import { useState } from "react";
 import Link from "next/link";
 import Register from "@/components/Register";
 import Puente from "@/components/Puente";
-import {NavBarItems} from "@/components/NavBarItems";
-import {Logo} from "@/components/Logo";
-import {Button} from "@/components/ui/button";
+import { NavBarItems } from "@/components/NavBarItems";
+import { Logo } from "@/components/Logo";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  
   const [menu, setMenu] = useState(false);
   const toggle = () => {
-		setMenu(!menu);
-	};
+    setMenu(!menu);
+  };
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
-      <div className={`bg-[rgb(252,118,65)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}>
+      <div
+        className={`bg-[rgb(252,118,65)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${
+          menu ? "top-[-2000px]" : "top-0"
+        }`}
+      >
         <div className="absolute top-0 right-0 flex justify-between w-full px-6">
           <div className="flex items-center justify-center">
             <Logo />
@@ -25,20 +28,22 @@ export default function Home() {
               <li className="px-6">Contacts</li>
             </ul>
           </div>
-          <div className="flex items-center justify-center">
-            button
-          </div>
+          <div className="flex items-center justify-center">button</div>
         </div>
         <div className="text-center">
           <div className="">
             <p className="text-white text-[120px]">Welcome To</p>
-            <p className="text-white text-[120px]">The <span className="text-black">EL Puente</span> tool</p>
+            <p className="text-white text-[120px]">
+              <span className="text-black">EL Puente</span>
+            </p>
           </div>
-            <Button onClick={(e) => {
+          <Button
+            onClick={(e) => {
               toggle();
-            }}> 
-            Get Starte
-            </Button>
+            }}
+          >
+            Get Started
+          </Button>
         </div>
       </div>
       <div className="">
@@ -60,10 +65,12 @@ export default function Home() {
         <div className="text-center">
           <p>
             Did your company already registered?{" "}
-            <Link href="/company-login"><span className="text-[rgb(252,118,65)]">Login</span></Link>
+            <Link href="/company-login">
+              <span className="text-[rgb(252,118,65)]">Login</span>
+            </Link>
           </p>
         </div>
-      </div> 
+      </div>
       {/* <NavBar /> */}
     </main>
   );
