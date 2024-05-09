@@ -15,7 +15,7 @@ const API_URL =
 
 export default function CompanyRegister() {
   const [name, setName] = useState("");
-  const [industry, setIndustry] = useState("");
+  const [industry, setIndustry] = useState("Tech");
   const [background, setBackground] = useState("");
 
   async function register() {

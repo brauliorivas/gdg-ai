@@ -8,13 +8,14 @@ class Employee(BaseModel):
     cv: str
     
 class EmployeeQdrant(BaseModel):
+    id: str
     name: str
     skillset: List[str]
     background: str
     background_vector: List[float]
     cv_vector: List[float]
-    score_cv: Optional[float]
-    score_background: Optional[float]
+    score_cv: Optional[float] = None
+    score_background: Optional[float] = None
     
 class EmployeeRequest(BaseModel):
     chat: Chat

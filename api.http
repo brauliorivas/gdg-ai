@@ -110,7 +110,7 @@ Content-Type: application/json
 ### MODEL ###
 
 ### Get employee by id
-GET http://localhost:8000/employees/58036365-709f-4eb7-b553-c4d2d474f996
+GET http://localhost:8000/employees/81c38592-8ff7-4c47-85eb-4e383bcefda9
 
 ### Create a new employee (developer for the consulting firm)
 POST http://localhost:8000/employees/

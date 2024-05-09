@@ -6,6 +6,7 @@ import InputLabel from "@/components/InputLabel";
 import TextInput from "@/components/TextInput";
 import MultipleTextInput from "@/components/MultipleTextInput";
 import { Button } from "@/components/ui/button";
+import { redirectUtil } from "@/utils/redirect";
 
 const API_URL =
   process.env.NODE_ENV === "development"
@@ -16,9 +17,33 @@ export default function EmployeeRegister() {
   const [name, setName] = useState("");
   const [skillset, setSkillset] = useState([]);
   const [background, setBackground] = useState("");
-  const [cv, setCv] = useState("");
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [isFilePicked, setIsFilePicked] = useState(false);
+
+  const changeHandler = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setIsFilePicked(true);
+  };
+
+  async function extractTextCv() {
+    const formData = new FormData();
+
+    formData.append("file", selectedFile, selectedFile.name);
+
+    const response = await fetch(`${API_URL}/extract`, {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    return data;
+  }
 
   async function register() {
+    const cv = await extractTextCv();
+
     const requestObject = {
       method: "POST",
       headers: {
@@ -39,8 +64,6 @@ export default function EmployeeRegister() {
     }
   }
 
-  function uploadCV() {}
-
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
@@ -60,14 +83,7 @@ export default function EmployeeRegister() {
         <div className="flex mt-5 items-center">
           <InputLabel prompt="Upload your CV" />
           <div className="mx-5">
-            <Button
-              variant="destructive"
-              onClick={() => {
-                uploadCV();
-              }}
-            >
-              Upload
-            </Button>
+            <input type="file" name="file" onChange={changeHandler} />
           </div>
         </div>
       </div>
