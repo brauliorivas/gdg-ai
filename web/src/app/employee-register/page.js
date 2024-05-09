@@ -39,6 +39,8 @@ export default function EmployeeRegister() {
     }
   }
 
+  function uploadCV() {}
+
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
       <Puente />
@@ -61,7 +63,7 @@ export default function EmployeeRegister() {
             <Button
               variant="destructive"
               onClick={() => {
-                console.log("Upload");
+                uploadCV();
               }}
             >
               Upload
@@ -72,8 +74,9 @@ export default function EmployeeRegister() {
       <div className="m-5">
         <Button
           variant="destructive"
-          onClick={() => {
-            console.log("Register");
+          onClick={(e) => {
+            e.preventDefault();
+            register();
           }}
         >
           Register
