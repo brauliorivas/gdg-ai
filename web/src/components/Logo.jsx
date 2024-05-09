@@ -1,6 +1,6 @@
 export function Logo(){
     return(
-        <div className="flex border border-sky-500 p-2">
+        <div className="flex border border-sky-500 p-2 items-center justify-center bg-white">
             <table>
                 <tbody>
                 <tr>

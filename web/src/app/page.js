@@ -1,29 +1,44 @@
 "use client";
-// import { NavBar } from "@/components/NavBar";
+import { useState } from "react";
 import Link from "next/link";
 import Register from "@/components/Register";
 import Puente from "@/components/Puente";
 import {NavBarItems} from "@/components/NavBarItems";
 import {Logo} from "@/components/Logo";
+import {Button} from "@/components/ui/button";
+
 export default function Home() {
+  
+  const [menu, setMenu] = useState(false);
+  const toggle = () => {
+		setMenu(!menu);
+	};
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center">
-      <div className="hidden">
-        <div className="absolute top-0 right-0 flex justify-between w-full">
-          <div className="flex">
+      <div className={`bg-[rgb(252,118,65)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}>
+        <div className="absolute top-0 right-0 flex justify-between w-full px-6">
+          <div className="flex items-center justify-center">
             <Logo />
-            <ul className="flex">
-              <li>Home</li>
-              <li>About</li>
-              <li>Contacts</li>
+            <ul className="flex text-white">
+              <li className="px-6">Home</li>
+              <li className="px-6">About</li>
+              <li className="px-6">Contacts</li>
             </ul>
           </div>
-          <div>
+          <div className="flex items-center justify-center">
             button
           </div>
         </div>
-        <div>
-          
+        <div className="text-center">
+          <div className="">
+            <p className="text-white text-[120px]">Welcome To</p>
+            <p className="text-white text-[120px]">The <span className="text-black">EL Puente</span> tool</p>
+          </div>
+            <Button onClick={(e) => {
+              toggle();
+            }}> 
+            Get Starte
+            </Button>
         </div>
       </div>
       <div className="">
@@ -35,14 +50,14 @@ export default function Home() {
           <p>Are you an old/new employee at El Puente?</p>
           <p>Create a profile in our newest portal</p>
         </div>
-        <div className="">
+        <div className="text-center">
           <p>Register</p>
         </div>
         <div className="flex">
           <Register type="Developer" link="/employee-register" />
           <Register type="Enterprise" link="/company-register" />
         </div>
-        <div>
+        <div className="text-center">
           <p>
             Did your company already registered?{" "}
             <Link href="/company-login"><span className="text-[rgb(252,118,65)]">Login</span></Link>
