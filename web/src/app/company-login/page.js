@@ -24,7 +24,8 @@ export default function CompanyLogin() {
   };
 
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center">
+    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
+      <div className="p-10 rounded-xl shadow-2xl bg-white">
       <Puente />
       <div className="mt-5">
         <div>
@@ -42,6 +43,8 @@ export default function CompanyLogin() {
           Login
         </Button>
       </div>
+      </div>
+      
     </main>
   );
 }

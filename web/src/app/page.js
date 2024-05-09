@@ -13,9 +13,9 @@ export default function Home() {
     setMenu(!menu);
   };
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center">
+    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
       <div
-        className={`bg-[rgb(252,118,65)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${
+        className={`bg-[rgb(252,118,00)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${
           menu ? "top-[-2000px]" : "top-0"
         }`}
       >
@@ -46,7 +46,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className="">
+      <div className="p-10 rounded-xl shadow-2xl bg-white">
         <Puente />
         <div className="text-center mt-5 ">
           <p>El Puente is an IT Consulting firm based in SF, CA.</p>
