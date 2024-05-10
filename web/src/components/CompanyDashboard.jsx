@@ -103,9 +103,9 @@ export default function CompanyDashboard({ data }) {
   }, [chat]);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-[rgb(221,218,216)]">
       {/*cabecera*/}
-      <div className="flex justify-between items-center h-[10vh]">
+      <div className="flex justify-between items-center h-[10vh] px-4 bg-[rgb(252,118,0)]">
         <Puente height={50} />
         {/* Avatar */}
         <div>
@@ -118,22 +118,22 @@ export default function CompanyDashboard({ data }) {
       {/*cuerpo*/}
       <div className="flex h-[90vh]">
         {/* Historial */}
-        <div className="w-[20%] border p-2 flex flex-col items-center"> 
-          <div className="text-center h-[90%] border w-full">
-            <div>Historial</div>
-            <div>
+        <div className="w-[20%] border p-2 flex flex-col items-center "> 
+          <div className="text-center h-[90%] border w-full bg-[rgb(252,252,252)] rounded-xl px-4 " >
+            <div className='p-4 uppercase font-bold'>register</div>
+            <div className='text-white p-5 bg-[rgb(252,118,0)] rounded-xl'>
               {history.map((value, index) => (
               <div key={index} onClick={() => {
                 setChat(value);
                 setRecommendations([]);
               }}>
-                <div>{value.title}</div>
-                <div>{value.created}</div>
+                <div className='font-medium'>{value.title}</div>
+                <div className='font-medium'> {value.created}</div>
               </div>
               ))}  
             </div>
           </div>
-          <div className=" h-[10%] border w-full text-center">
+          <div className=" h-[10%]  w-full flex items-center justify-center">
             <Button onClick={newChat}>New Chat</Button> 
           </div>
         </div>
