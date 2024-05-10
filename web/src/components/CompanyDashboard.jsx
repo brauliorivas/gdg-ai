@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect, useRef } from 'react';
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
@@ -91,8 +91,16 @@ export default function CompanyDashboard({ data }) {
         body: JSON.stringify(chat)
       });
     }
-
   }
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+      scrollToBottom();
+  }, [chat]);
 
   return (
     <div className="h-screen">
@@ -150,7 +158,8 @@ export default function CompanyDashboard({ data }) {
                       <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
                     ))
                   }
-              </div>
+                  <div ref={messagesEndRef} />
+              </div >
               {/* Form pregunta */}
               <div className="flex h-[15%] border items-center">
                   <Textarea onChange={(event) => {
