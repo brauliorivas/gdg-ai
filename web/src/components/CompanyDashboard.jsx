@@ -7,6 +7,14 @@ import { Button } from "./ui/button";
 import MultipleTextInput from "./MultipleTextInput";
 import Message from "./Message";
 import Puente from "./Puente";
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 const API_URL = "http://127.0.0.1:8000https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
@@ -184,14 +192,15 @@ export default function CompanyDashboard({ data }) {
             <MultipleTextInput values={filters} setValues={setFilters} />
           </div>
           {/* Recomendaciones */}
-          <div className="border p-2 h-[50%] flex justify-center">
-            <div className=''>
+          <div className="border p-2 h-[50%] flex flex-col items-center">
+            <div className='h-[10%]'>
               <Button onClick={(e) => {
                 e.preventDefault();
                 recommend();
               }}>Recommend</Button>    
             </div>
-            {/*aqqui va el carrusel*/ }
+            <div className='h-[90%]'>
+              {/*aqqui va el carrusel*/ }
             {
               recommendations.map((recommendation, index) => (
                 <div key={index}>
@@ -203,6 +212,26 @@ export default function CompanyDashboard({ data }) {
                 </div>
               ))
             }
+            <div>
+            <Carousel className="w-full max-w-xs">
+      <CarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-4xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+            </div>
+            </div>
           </div>
         </div>
       </div>
