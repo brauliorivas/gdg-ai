@@ -6,6 +6,7 @@ import Puente from "@/components/Puente";
 import { NavBarItems } from "@/components/NavBarItems";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ModeToggle";
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
@@ -31,7 +32,7 @@ export default function Home() {
               <li className="px-6 font-semibold">Contacts</li>
             </ul>
           </div>
-          <div className="flex items-center justify-center">button</div>
+          <div className="flex items-center justify-center"><ModeToggle/></div>
         </div>
         <div className="text-center">
           <div className="">
@@ -49,7 +50,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className="p-10 rounded-xl shadow-2xl bg-white">
+      <div className="p-2 rounded-xl shadow-2xl bg-white">
         <Puente />
         <div className="text-center mt-5 ">
           <p>El Puente is an IT Consulting firm based in SF, CA.</p>
