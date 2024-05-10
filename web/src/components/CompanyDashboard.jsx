@@ -138,11 +138,11 @@ export default function CompanyDashboard({ data }) {
           </div>
         </div>
         {/*chat,filtro y recomendacion*/}
-        <div className="w-[80%] border">
+        <div className="w-[70%] border">
           {/* Chat y filtro*/}
-          <div className="flex h-[80%]">
+          <div className="flex h-[100%]">
             {/* Chat */}
-            <div className="w-[75%] border p-2 flex flex-col">
+            <div className="w-[100%] border p-2 flex flex-col">
               {/* Dialogo */}
               <div className="h-[85%] overflow-y-auto  w-full bg-[rgb(252,252,252)] rounded-t-xl">
                   {chat && 
@@ -173,14 +173,18 @@ export default function CompanyDashboard({ data }) {
                   }}>Send</Button>
               </div>
             </div>
-            {/*filtros*/}
-            <div className="w-[25%] border p-2">
+            
+          </div>
+          
+        </div>
+        <div className='w-[20%]'>
+          {/*filtros*/}
+          <div className=" border p-2 h-[50%]">
             <p>Filters</p>
-              <MultipleTextInput values={filters} setValues={setFilters} />
-            </div>
+            <MultipleTextInput values={filters} setValues={setFilters} />
           </div>
           {/* Recomendaciones */}
-          <div className="border p-2 h-[20%] flex items-center">
+          <div className="border p-2 h-[50%] flex justify-center">
             <div className=''>
               <Button onClick={(e) => {
                 e.preventDefault();
