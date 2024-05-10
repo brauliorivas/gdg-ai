@@ -130,21 +130,23 @@ export default function CompanyDashboard({ data }) {
           <div className="flex h-[80%]">
             {/* Chat */}
             <div className="w-[75%] border p-2">
-              <div>
-                {chat && 
-                  <Message text="¡Hello! ¿What profile are you searching for?" orientation="left" />
-                }
-                {chat && chat.messages && chat.messages.length === 1 &&
-                  chat.messages.map((message, index) => (
-                    <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
-                  ))
-                }
-                {chat && chat.messages && chat.messages.length !== 1 &&
-                  chat.messages.slice(2).map((message, index) => (
-                    <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
-                  ))
-                }
-                <div className="flex">
+              <div className="">
+                <div className="h-[59vh] border">
+                  {chat && 
+                    <Message text="¡Hello! ¿What profile are you searching for?" orientation="left" />
+                  }
+                  {chat && chat.messages && chat.messages.length === 1 &&
+                    chat.messages.map((message, index) => (
+                      <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
+                    ))
+                  }
+                  {chat && chat.messages && chat.messages.length !== 1 &&
+                    chat.messages.slice(2).map((message, index) => (
+                      <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
+                    ))
+                  }
+                </div>
+                <div className="flex h-[10vh] border items-center">
                   <Textarea onChange={(event) => {
                     setInput(event.target.value);
                   }}
