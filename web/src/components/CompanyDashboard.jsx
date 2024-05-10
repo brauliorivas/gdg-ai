@@ -8,7 +8,7 @@ import MultipleTextInput from "./MultipleTextInput";
 import Message from "./Message";
 import Puente from "./Puente";
 
-const API_URL = process.env.NODE_ENV === "development" ? "http://localhost:8000" : process.env.NEXT_PUBLIC_API_URL;
+const API_URL = "http://127.0.0.1:8000https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
 export default function CompanyDashboard({ data }) {
   const id = data.id;
@@ -95,10 +95,10 @@ export default function CompanyDashboard({ data }) {
   }
 
   return (
-    <div className="flex flex-row">
-      <div className="flex flex-col">
+    <div className="flex h-screen">
+      <div className="w-[20%] flex flex-col items-center">
         <Puente height={50} />
-        <div className="flex flex-col"> 
+        <div className=""> 
           {history.map((value, index) => (
             <div key={index} onClick={() => {
               setChat(value);
@@ -108,20 +108,17 @@ export default function CompanyDashboard({ data }) {
               <div>{value.created}</div>
             </div>
           ))}
-          <Button onClick={newChat}>New Chat</Button> 
+          <div className="">
+            <div className="flex flex-col items-center">
+              <Button onClick={newChat}>New Chat</Button> 
+            </div>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col">
-        {/* Avatar */}
-        <div>
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-        </div>
-
+      <div className="w-2/4">
+        
         {/* Chat */}
-        <div className="flex flex-row">
+        <div className="">
           <div>
             <div>
               {chat && 
@@ -137,7 +134,7 @@ export default function CompanyDashboard({ data }) {
                   <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
                 ))
               }
-              <div className="flex flex-row">
+              <div className="">
                 <Textarea onChange={(event) => {
                   setInput(event.target.value);
                 }}
@@ -168,9 +165,19 @@ export default function CompanyDashboard({ data }) {
               ))
             }
           </div>
-          <div>
-            <MultipleTextInput values={filters} setValues={setFilters} />
-          </div>
+        </div>
+      </div>
+      <div className="w-[30%]">
+        {/* Avatar */}
+        <div>
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </div>
+        <div>
+          <p>Filters</p>
+          <MultipleTextInput values={filters} setValues={setFilters} />
         </div>
       </div>
     </div>

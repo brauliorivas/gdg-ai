@@ -8,10 +8,7 @@ import MultipleTextInput from "@/components/MultipleTextInput";
 import { Button } from "@/components/ui/button";
 import { redirectUtil } from "@/utils/redirect";
 
-const API_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:8000"
-    : process.env.NEXT_PUBLIC_API_URL;
+const API_URL ="https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
 export default function EmployeeRegister() {
   const [name, setName] = useState("");

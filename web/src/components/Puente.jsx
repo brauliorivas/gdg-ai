@@ -5,7 +5,7 @@ import logo from "@/assets/logo.webp";
 export default function Puente({ height = 150}) {
   return (
     <div>
-      <Link href="/">
+      <Link href="/" className="px-4 py-4">
         <Image src={logo} alt="logo" height={height} />
       </Link>
     </div>

@@ -1,6 +1,6 @@
 import CompanyDashboard from "@/components/CompanyDashboard";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = "https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
 async function getCompany(id) {
   const response = await fetch(`${API_URL}/clients/${id}`);
