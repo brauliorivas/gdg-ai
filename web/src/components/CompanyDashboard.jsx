@@ -144,7 +144,7 @@ export default function CompanyDashboard({ data }) {
             {/* Chat */}
             <div className="w-[75%] border p-2 flex flex-col">
               {/* Dialogo */}
-              <div className="h-[85%] overflow-y-auto border w-full ">
+              <div className="h-[85%] overflow-y-auto  w-full bg-[rgb(252,252,252)] rounded-t-xl">
                   {chat && 
                     <Message text="¡Hello! ¿What profile are you searching for?" orientation="left" />
                   }
@@ -161,7 +161,7 @@ export default function CompanyDashboard({ data }) {
                   <div ref={messagesEndRef} />
               </div >
               {/* Form pregunta */}
-              <div className="flex h-[15%] border items-center">
+              <div className="flex h-[15%] items-center bg-[rgb(252,252,252)] rounded-b-xl px-4">
                   <Textarea onChange={(event) => {
                     setInput(event.target.value);
                   }}
@@ -180,13 +180,14 @@ export default function CompanyDashboard({ data }) {
             </div>
           </div>
           {/* Recomendaciones */}
-          <div className="border p-2 h-[20%]">
-            <div>
+          <div className="border p-2 h-[20%] flex items-center">
+            <div className=''>
               <Button onClick={(e) => {
                 e.preventDefault();
                 recommend();
               }}>Recommend</Button>    
             </div>
+            {/*aqqui va el carrusel*/ }
           </div>
         </div>
       </div>
