@@ -136,7 +136,7 @@ export default function CompanyDashboard({ data }) {
             {/* Chat */}
             <div className="w-[75%] border p-2 flex flex-col">
               {/* Dialogo */}
-              <div className="h-[85%] border ">
+              <div className="h-[85%] border w-full ">
                   {chat && 
                     <Message text="¡Hello! ¿What profile are you searching for?" orientation="left" />
                   }
