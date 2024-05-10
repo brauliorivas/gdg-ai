@@ -16,7 +16,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-const API_URL = "http://127.0.0.1:8000https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
+const API_URL = "https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
 export default function CompanyDashboard({ data }) {
   const id = data.id;
@@ -146,7 +146,7 @@ export default function CompanyDashboard({ data }) {
           </div>
         </div>
         {/*chat,filtro y recomendacion*/}
-        <div className="w-[70%] border">
+        <div className="w-[70%]">
           {/* Chat y filtro*/}
           <div className="flex h-[100%]">
             {/* Chat */}
@@ -187,12 +187,12 @@ export default function CompanyDashboard({ data }) {
         </div>
         <div className='w-[20%]'>
           {/*filtros*/}
-          <div className=" border p-2 h-[50%]">
+          <div className="  p-2 h-[50%]">
             <p>Filters</p>
             <MultipleTextInput values={filters} setValues={setFilters} />
           </div>
           {/* Recomendaciones */}
-          <div className="border p-2 h-[50%] flex flex-col items-center">
+          <div className=" p-2 h-[50%] flex flex-col items-center">
             <div className='h-[10%]'>
               <Button onClick={(e) => {
                 e.preventDefault();
@@ -229,7 +229,7 @@ export default function CompanyDashboard({ data }) {
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
-    </Carousel>
+      </Carousel>
             </div>
             </div>
           </div>
