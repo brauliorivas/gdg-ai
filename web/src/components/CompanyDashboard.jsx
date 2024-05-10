@@ -192,6 +192,17 @@ export default function CompanyDashboard({ data }) {
               }}>Recommend</Button>    
             </div>
             {/*aqqui va el carrusel*/ }
+            {
+              recommendations.map((recommendation, index) => (
+                <div key={index}>
+                  <div>{recommendation.name}</div>
+                  <div>{recommendation.skillset.join(" ")}</div>
+                  <div>{recommendation.background}</div>
+                  <div>{recommendation.score_cv}</div>
+                  <div>{recommendation.score_background}</div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
