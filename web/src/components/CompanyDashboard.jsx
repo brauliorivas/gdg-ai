@@ -110,28 +110,33 @@ export default function CompanyDashboard({ data }) {
       {/*cuerpo*/}
       <div className="flex h-[90vh]">
         {/* Historial */}
-        <div className="w-[20%] border p-2"> 
-          {history.map((value, index) => (
-            <div key={index} onClick={() => {
-              setChat(value);
-              setRecommendations([]);
-            }}>
-              <div>{value.title}</div>
-              <div>{value.created}</div>
+        <div className="w-[20%] border p-2 flex flex-col items-center"> 
+          <div className="text-center h-[90%] border w-full">
+            <div>Historial</div>
+            <div>
+              {history.map((value, index) => (
+              <div key={index} onClick={() => {
+                setChat(value);
+                setRecommendations([]);
+              }}>
+                <div>{value.title}</div>
+                <div>{value.created}</div>
+              </div>
+              ))}  
             </div>
-          ))}
-            <div className="">
-              <Button onClick={newChat}>New Chat</Button> 
-            </div>
+          </div>
+          <div className=" h-[10%] border w-full text-center">
+            <Button onClick={newChat}>New Chat</Button> 
+          </div>
         </div>
         {/*chat,filtro y recomendacion*/}
         <div className="w-[80%] border">
           {/* Chat y filtro*/}
           <div className="flex h-[80%]">
             {/* Chat */}
-            <div className="w-[75%] border p-2">
-              <div className="">
-                <div className="h-[59vh] border">
+            <div className="w-[75%] border p-2 flex flex-col">
+              {/* Dialogo */}
+              <div className="h-[85%] border ">
                   {chat && 
                     <Message text="¡Hello! ¿What profile are you searching for?" orientation="left" />
                   }
@@ -145,8 +150,9 @@ export default function CompanyDashboard({ data }) {
                       <Message key={index} text={message.parts[0]} orientation={message.role === "user" ? "right" : "left"}/>
                     ))
                   }
-                </div>
-                <div className="flex h-[10vh] border items-center">
+              </div>
+              {/* Form pregunta */}
+              <div className="flex h-[15%] border items-center">
                   <Textarea onChange={(event) => {
                     setInput(event.target.value);
                   }}
@@ -156,7 +162,6 @@ export default function CompanyDashboard({ data }) {
                     e.preventDefault();
                     sendMessage();
                   }}>Send</Button>
-                </div>
               </div>
             </div>
             {/*filtros*/}
@@ -173,7 +178,6 @@ export default function CompanyDashboard({ data }) {
                 recommend();
               }}>Recommend</Button>    
             </div>
-            
           </div>
         </div>
       </div>
