@@ -4,9 +4,10 @@ import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "./ui/button";
-import MultipleTextInput from "./MultipleTextInput";
+import InfoFilter from "./InfoFilter";
 import Message from "./Message";
 import Puente from "./Puente";
+import { Logo } from "@/components/Logo";
 
 const API_URL = "https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
@@ -108,7 +109,7 @@ export default function CompanyDashboard({ data }) {
     <div className="h-screen bg-[rgb(221,218,216)] overflow-hidden">
       {/*cabecera*/}
       <div className="flex justify-between items-center h-[10vh] px-4 bg-[rgb(252,118,0)]">
-        <Puente height={50} />
+        <Logo />
         {/* Avatar */}
         <div>
           <Avatar>
@@ -184,7 +185,8 @@ export default function CompanyDashboard({ data }) {
           {/*filtros*/}
           <div className="p-2 h-[20%]">
             <p>Filters</p>
-            <MultipleTextInput values={filters} setValues={setFilters} />
+            <InfoFilter name={'Language'} values={filters} setValues={setFilters}/>
+            <InfoFilter name={'Framework'} values={filters} setValues={setFilters}/>
           </div>
           <div className="p-2 flex flex-col items-center">
             <div className='h-[10%]'>
