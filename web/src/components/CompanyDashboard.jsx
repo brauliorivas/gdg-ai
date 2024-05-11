@@ -130,8 +130,10 @@ export default function CompanyDashboard({ data }) {
                 setChat(value);
                 setRecommendations([]);
                 setFilters([]);
-              }}>
-                <div className='font-medium'>{value.title}</div>
+              }}
+                className='cursor-pointer border my-2 border-black rounded'
+              >
+                <div className='font-bold'>{value.title}</div>
                 <div className='font-medium'> {value.created}</div>
               </div>
               ))}  
