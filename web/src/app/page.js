@@ -44,8 +44,9 @@ export default function Home() {
               <span className="text-black">EL Puente</span>
             </p>
             <div className="flex items-center justify-center">
-              <ConsoleText 
-                words={['El Puente', 'el puente', 'EL PUENTE']} 
+            <ConsoleText 
+              words={['EL PUENTE', 'EL PUENTE', 'EL PUENTE']} 
+              fonts = {["Comic Sans MS", "Verdana", "Courier New"]}
               />
             </div>
             
