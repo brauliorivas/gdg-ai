@@ -7,6 +7,7 @@ import TextInput from "@/components/TextInput";
 import { Combobox } from "@/components/Combobox";
 import { Button } from "@/components/ui/button";
 import { redirectUtil } from "@/utils/redirect";
+import {LogoXL}   from "@/components/LogoXL";
 
 const API_URL ="https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
@@ -38,7 +39,7 @@ export default function CompanyRegister() {
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
       <div className="p-10 rounded-xl shadow-2xl bg-white">
-      <Puente />
+      <LogoXL />
       <div>
         <div className="mt-5">
           <InputLabel prompt="What's your company name?" />

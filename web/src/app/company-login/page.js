@@ -6,6 +6,7 @@ import InputLabel from "@/components/InputLabel";
 import TextInput from "@/components/TextInput";
 import { Button } from "@/components/ui/button";
 import { redirectUtil } from "@/utils/redirect";
+import {LogoXL}   from "@/components/LogoXL";
 
 const API_URL ="https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
@@ -23,7 +24,7 @@ export default function CompanyLogin() {
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
       <div className="p-10 rounded-xl shadow-2xl bg-white">
-      <Puente />
+      <LogoXL />
       <div className="mt-5">
         <div>
           <InputLabel prompt="Write your company name" />

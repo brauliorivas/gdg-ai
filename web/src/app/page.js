@@ -5,6 +5,7 @@ import Register from "@/components/Register";
 import Puente from "@/components/Puente";
 import { NavBarItems } from "@/components/NavBarItems";
 import { Logo } from "@/components/Logo";
+import {LogoXL}   from "@/components/LogoXL";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ModeToggle";
 import  ConsoleText  from "@/components/ConsoleText";
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
-      <div className={`bg-[rgb(252,118,00)] dark:bg-[rgb(0,0,0)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}
+      <div className={`z-10 bg-[rgb(252,118,00)] dark:bg-[rgb(0,0,0)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}
       >
         <div className="absolute top-0 right-0 flex justify-between w-full px-6">
           <div className="flex items-center justify-center">
@@ -48,7 +49,7 @@ export default function Home() {
             </div>
             
           </div>
-          <Button
+          <Button variant="secondary" size="lg"
             onClick={(e) => {
               toggle();
             }}
@@ -57,8 +58,8 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className="p-2 rounded-xl shadow-2xl bg-white">
-        <Puente />
+      <div className="p-6 rounded-xl shadow-2xl bg-white -z-1000">
+        <LogoXL />
         <div className="text-center mt-5 ">
           <p>El Puente is an IT Consulting firm based in SF, CA.</p>
           <p>Are you a company looking for developers?</p>
