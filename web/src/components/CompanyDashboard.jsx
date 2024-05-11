@@ -110,14 +110,16 @@ export default function CompanyDashboard({ data }) {
   }, [chat]);
 
   return (
-    <div className="h-screen bg-[rgb(221,218,216)] overflow-hidden">
+    <div className="h-screen bg-[rgb(221,218,216)] overflow-hidden dark:bg-[rgb(27,27,27)] ">
       <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
         <ModeToggle/>
-        <div onClick={toggle1} className={`bg-[rgb(252,252,252)] w-full text-center rounded cursor-pointer `}>▼</div>
+        <div onClick={toggle1} className={`bg-[rgb(252,252,252)] dark:bg-[rgb(27,27,27)] w-full text-center rounded cursor-pointer `}>▼</div>
       </div>
       {/*cabecera*/}
-      <div className="flex justify-between items-center h-[10vh] px-12 bg-[rgb(252,118,0)]">
+      <div className="flex justify-between items-center h-[12vh] px-12 py-2 bg-[rgb(252,118,0)] dark:bg-[rgb(0,0,0)]">
+        <div className='py-20'>
         <Logo />
+        </div>
         {/* Avatar */}
         <div>
           <Avatar>
@@ -127,12 +129,12 @@ export default function CompanyDashboard({ data }) {
         </div>
       </div>
       {/*cuerpo*/}
-      <div className="flex h-[90vh]">
+      <div className="flex h-[88vh]">
         {/* Historial */}
         <div className="w-[20%] border p-2 flex flex-col items-center "> 
-          <div className="text-center h-[90%] border w-full bg-[rgb(252,252,252)] rounded-xl px-4 " >
-            <div className='p-4 uppercase font-bold'>register</div>
-            <div className='text-white p-5 bg-[rgb(252,118,0)] rounded-xl'>
+          <div className="text-center h-[90%] border w-full bg-[rgb(252,252,252)] dark:bg-[rgb(0,0,0)] rounded-xl px-4 " >
+            <div className='p-4 uppercase font-bold dark:text-[rgb(252,118,0)] text-[20px]'>register</div>
+            <div className='text-white dark:text-[rgb(252,118,0)] p-5 bg-[rgb(252,118,0)] dark:bg-[rgb(27,27,27)] rounded-xl'>
               {history.map((value, index) => (
               <div key={index} onClick={() => {
                 setChat(value);
@@ -158,7 +160,7 @@ export default function CompanyDashboard({ data }) {
             {/* Chat */}
             <div className="w-[100%] border p-2 flex flex-col">
               {/* Dialogo */}
-              <div className="h-[85%] overflow-y-auto  w-full bg-[rgb(252,252,252)] rounded-t-xl">
+              <div className="h-[85%] overflow-y-auto  w-full bg-[rgb(252,252,252)] dark:bg-[rgb(0,0,0)] rounded-t-xl">
                   {chat && 
                     <Message text="¡Hello! ¿What profile are you searching for?" orientation="left" />
                   }
@@ -175,7 +177,7 @@ export default function CompanyDashboard({ data }) {
                   <div ref={messagesEndRef} />
               </div >
               {/* Form pregunta */}
-              <div className="flex h-[15%] items-center bg-[rgb(252,252,252)] rounded-b-xl px-4">
+              <div className="flex h-[15%] items-center bg-[rgb(252,252,252)] dark:bg-[rgb(0,0,0)] rounded-b-xl px-4">
                   <Textarea onChange={(event) => {
                     setInput(event.target.value);
                   }}
@@ -194,7 +196,7 @@ export default function CompanyDashboard({ data }) {
         <div className='w-[20%]'>
           {/*filtros*/}
           <div className="p-2 h-[20%]">
-            <p>Filters</p>
+            <p className=' dark:text-[rgb(252,118,0)] text-center text-[30px] font-bold' >Filters</p>
             <MultipleTextInput values={filters} setValues={setFilters}/>
           </div>
           <div className="p-2 flex flex-col items-center">
@@ -204,10 +206,10 @@ export default function CompanyDashboard({ data }) {
                 recommend();
               }}>Recommend</Button>    
             </div>
-            <div className='mt-4 overflow-y-auto'>
+            <div className='mt-4 overflow-y-auto '>
               {
                 recommendations.sort((a, b) => b.score_cv - a.score_cv).map((recommendations, index) => (
-                  <div key={index} className='bg-white my-5 border-2 p-4 rounded-xl border-black'>
+                  <div key={index} className='bg-white my-5 border-2 p-4 rounded-xl border-black dark:bg-[rgb(0,0,0)] shadow-xl'>
                     <div className='font-bold'>{recommendations.name}</div>
                     <div>Skills: {recommendations.skillset.join(",")}</div>
                     <div className={`rounded-xl w-fit px-2 text-white bg-${recommendations.score_cv <  0.25 ? "red-500" : recommendations.score_cv <  0.50 ? "yellow-500" : "green-500"}`}>Score: {recommendations.score_cv.toFixed(2)}</div>
