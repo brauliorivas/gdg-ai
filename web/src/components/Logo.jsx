@@ -5,35 +5,35 @@ export function Logo(){
                 <tbody>
                 <tr>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                     <td className="pt-1 pl-1 pr-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                 </tr>
                 <tr>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                     <td className="pt-1 pl-1 pr-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                 </tr>
                 <tr>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                     <td className="pt-1 pl-1 pr-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
                     </td>
                 </tr>
                 </tbody>
