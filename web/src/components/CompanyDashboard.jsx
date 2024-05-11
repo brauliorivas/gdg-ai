@@ -9,12 +9,14 @@ import Message from "./Message";
 import { Logo } from "@/components/Logo";
 import MultipleTextInput from "@/components/MultipleTextInput";
 
+import { ModeToggle } from "@/components/ModeToggle";
+
 const API_URL = "https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
 export default function CompanyDashboard({ data }) {
   const id = data.id;
   const vector = data.background_vector;
-  
+  const [Theme, setTheme] = useState(false);
   const [history, setHistory] = useState(data.history);
   
   const [chat, setChat] = useState(null);
@@ -25,7 +27,9 @@ export default function CompanyDashboard({ data }) {
 
   const [recommendations, setRecommendations] = useState([]);
 
-
+  const toggle1 = () => {
+    setTheme(!Theme);
+  };
   const newChat = () => {
     setChat({
       title: "New Chat",
@@ -107,8 +111,12 @@ export default function CompanyDashboard({ data }) {
 
   return (
     <div className="h-screen bg-[rgb(221,218,216)] overflow-hidden">
+      <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
+        <ModeToggle/>
+        <div onClick={toggle1} className={`bg-[rgb(252,252,252)] w-full text-center rounded cursor-pointer `}>▼</div>
+      </div>
       {/*cabecera*/}
-      <div className="flex justify-between items-center h-[10vh] px-4 bg-[rgb(252,118,0)]">
+      <div className="flex justify-between items-center h-[10vh] px-12 bg-[rgb(252,118,0)]">
         <Logo />
         {/* Avatar */}
         <div>

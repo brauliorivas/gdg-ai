@@ -8,14 +8,19 @@ import { Combobox } from "@/components/Combobox";
 import { Button } from "@/components/ui/button";
 import { redirectUtil } from "@/utils/redirect";
 import {LogoXL}   from "@/components/LogoXL";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const API_URL ="https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
 export default function CompanyRegister() {
   const [name, setName] = useState("");
+  const [Theme, setTheme] = useState(false);
   const [industry, setIndustry] = useState("Tech");
   const [background, setBackground] = useState("");
 
+  const toggle1 = () => {
+    setTheme(!Theme);
+  };
   async function register() {
     const requestObject = {
       method: "POST",
@@ -37,7 +42,11 @@ export default function CompanyRegister() {
   }
 
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
+    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)] dark:bg-[rgb(0,0,0)]">
+      <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
+        <ModeToggle/>
+        <div onClick={toggle1} className={`bg-[rgb(252,252,252)] w-full text-center rounded cursor-pointer `}>▼</div>
+      </div>
       <div className="p-10 rounded-xl shadow-2xl bg-white">
       <LogoXL />
       <div>

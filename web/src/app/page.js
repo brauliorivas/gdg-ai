@@ -12,20 +12,20 @@ import  ConsoleText  from "@/components/ConsoleText";
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
+  const [Theme, setTheme] = useState(false);
   const toggle = () => {
     setMenu(!menu);
   };
-  const [hover,setHover]= useState(false);
-  
-  const toggleHover = () => {
-    setHover(!hover);
+  const toggle1 = () => {
+    setTheme(!Theme);
   };
+  
 
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
+    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)] dark:bg-[rgb(27,27,27)]">
       <div className={`z-10 bg-[rgb(252,118,00)] dark:bg-[rgb(0,0,0)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}
       >
-        <div className="absolute top-0 right-0 flex justify-between w-full px-6">
+        <div  className="absolute top-0 right-0 flex justify-between w-full px-6 ">
           <div className="flex items-center justify-center">
             <Logo />
             <ul className="flex text-white">
@@ -34,7 +34,9 @@ export default function Home() {
               <li className="px-6 font-semibold">Contacts</li>
             </ul>
           </div>
-          <div className="flex items-center justify-center"><ModeToggle/></div>
+          <div className={`flex items-center justify-center ${menu ? "absolute " : ""}`}>
+            <ModeToggle/>
+          </div>
         </div>
         <div className="text-center">
           <div className="">
@@ -58,27 +60,31 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className="p-6 rounded-xl shadow-2xl bg-white -z-1000">
+      <div className="p-6 rounded-xl shadow-2xl bg-white dark:bg-[rgb(0,0,0)] -z-1000">
+        <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
+            <ModeToggle/>
+            <div onClick={toggle1} className={`bg-[rgb(252,252,252)] dark:bg-[rgb(0,0,0)] w-full text-center rounded cursor-pointer `}>▼</div>
+        </div>
         <LogoXL />
         <div className="text-center mt-5 ">
-          <p>El Puente is an IT Consulting firm based in SF, CA.</p>
-          <p>Are you a company looking for developers?</p>
-          <p>Register as Enterprise</p>
-          <p>Are you an old/new employee at El Puente?</p>
-          <p>Create a profile in our newest portal</p>
+          <p className="font-bold">El Puente is an IT Consulting firm based in SF, CA.</p>
+          <p className="font-bold">Are you a company looking for developers?</p>
+          <p className="font-bold">Register as Enterprise</p>
+          <p className="font-bold">Are you an old/new employee at El Puente?</p>
+          <p className="font-bold">Create a profile in our newest portal</p>
         </div>
         <div className="text-center">
-          <p>Register</p>
+          <p className="text-[rgb(252,118,0)] font-bold text-[40px] uppercase mt-4">Register</p>
         </div>
         <div className="flex">
           <Register type="Developer" link="/employee-register" />
           <Register type="Enterprise" link="/company-register" />
         </div>
         <div className="text-center">
-          <p>
+          <p className="font-bold"> 
             Did your company already registered?{" "}
             <Link href="/company-login">
-              <span className="text-[rgb(252,118,65)]">Login</span>
+              <span className="text-[rgb(252,118,65)] font-bold">Login</span>
             </Link>
           </p>
         </div>
