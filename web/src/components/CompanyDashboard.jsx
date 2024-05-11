@@ -1,13 +1,13 @@
 "use client";
+
 import { useEffect, useRef } from 'react';
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "./ui/button";
-import InfoFilter from "./InfoFilter";
 import Message from "./Message";
-import Puente from "./Puente";
 import { Logo } from "@/components/Logo";
+import MultipleTextInput from "@/components/MultipleTextInput";
 
 const API_URL = "https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
@@ -185,8 +185,7 @@ export default function CompanyDashboard({ data }) {
           {/*filtros*/}
           <div className="p-2 h-[20%]">
             <p>Filters</p>
-            <InfoFilter name={'Language'} values={filters} setValues={setFilters}/>
-            <InfoFilter name={'Framework'} values={filters} setValues={setFilters}/>
+            <MultipleTextInput values={filters} setValues={setFilters}/>
           </div>
           <div className="p-2 flex flex-col items-center">
             <div className='h-[10%]'>
