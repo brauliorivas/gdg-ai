@@ -6,7 +6,7 @@ export default function Message({ text, link = "https://github.com/shadcn.png", 
       <div className={`max-w-half flex items-center m-3 ${orientation === "right" ? "bg-[rgb(238,172,148)]" : "bg-[rgb(202,200,200)]"} text-black p-2 rounded-lg shadow-md`}>
         {orientation === "left" && (
           <Avatar>
-            <AvatarImage src={link} />
+            <AvatarImage src={orientation === "left" ? "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" : link} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         )}

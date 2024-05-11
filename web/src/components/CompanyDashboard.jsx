@@ -7,14 +7,6 @@ import { Button } from "./ui/button";
 import MultipleTextInput from "./MultipleTextInput";
 import Message from "./Message";
 import Puente from "./Puente";
-import { Card, CardContent } from "@/components/ui/card"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
 
 const API_URL = "https://organisational-berget-brauliorivas-2b6dec69.koyeb.app";
 
@@ -39,6 +31,7 @@ export default function CompanyDashboard({ data }) {
       created: new Date().toISOString(),
       messages: []
     });
+    setFilters([]);
   }
 
   async function sendMessage() {
@@ -67,6 +60,7 @@ export default function CompanyDashboard({ data }) {
     const data = await res.json();
     setInput("");
     setChat(data); 
+    setFilters([]);
   }
 
   async function recommend() {
@@ -111,7 +105,7 @@ export default function CompanyDashboard({ data }) {
   }, [chat]);
 
   return (
-    <div className="h-screen bg-[rgb(221,218,216)]">
+    <div className="h-screen bg-[rgb(221,218,216)] overflow-hidden">
       {/*cabecera*/}
       <div className="flex justify-between items-center h-[10vh] px-4 bg-[rgb(252,118,0)]">
         <Puente height={50} />
@@ -134,6 +128,7 @@ export default function CompanyDashboard({ data }) {
               <div key={index} onClick={() => {
                 setChat(value);
                 setRecommendations([]);
+                setFilters([]);
               }}>
                 <div className='font-medium'>{value.title}</div>
                 <div className='font-medium'> {value.created}</div>
@@ -187,52 +182,42 @@ export default function CompanyDashboard({ data }) {
         </div>
         <div className='w-[20%]'>
           {/*filtros*/}
-          <div className="  p-2 h-[50%]">
+          <div className="p-2 h-[20%]">
             <p>Filters</p>
             <MultipleTextInput values={filters} setValues={setFilters} />
           </div>
-          {/* Recomendaciones */}
-          <div className=" p-2 h-[50%] flex flex-col items-center">
+          <div className="p-2 flex flex-col items-center">
             <div className='h-[10%]'>
               <Button onClick={(e) => {
                 e.preventDefault();
                 recommend();
               }}>Recommend</Button>    
             </div>
-            <div className='h-[90%]'>
-              {/*aqqui va el carrusel*/ }
-            {
-              recommendations.map((recommendation, index) => (
-                <div key={index}>
-                  <div>{recommendation.name}</div>
-                  <div>{recommendation.skillset.join(" ")}</div>
-                  <div>{recommendation.background}</div>
-                  <div>{recommendation.score_cv}</div>
-                  <div>{recommendation.score_background}</div>
-                </div>
-              ))
-            }
-            <div>
-            <Carousel className="w-full max-w-xs">
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-      </Carousel>
-            </div>
+            <div className='mt-4 overflow-y-auto'>
+              {
+                recommendations.sort((a, b) => b.score_cv - a.score_cv).map((recommendations, index) => (
+                  <div key={index} className='bg-white my-5 border-2 p-4 rounded-xl border-black'>
+                    <div className='font-bold'>{recommendations.name}</div>
+                    <div>Skills: {recommendations.skillset.join(",")}</div>
+                    <div className={`rounded-xl w-fit px-2 text-white bg-${recommendations.score_cv <  0.25 ? "red-500" : recommendations.score_cv <  0.50 ? "yellow-500" : "green-500"}`}>Score: {recommendations.score_cv.toFixed(2)}</div>
+                    <div>Background: {recommendations.score_background < 0.25 ? "Very diverse" : recommendations.score_background < 0.50 ? "Diverse" : "Similar"}</div> 
+                  </div>
+                ))
+              }
             </div>
           </div>
+          <div className='mt-auto mx-auto flex flex-row justify-evenly text-white font-black'>
+            {/* Green means high, yellow means medium and red means low */}
+            <div className='bg-green-500 px-2 rounded'>
+              <p>High</p>
+            </div>
+            <div className='bg-yellow-500 px-2 rounded'>
+              <p>Medium</p>
+            </div>
+            <div className='bg-red-500 px-2 rounded'>
+              <p>Low</p>
+            </div>
+        </div>
         </div>
       </div>
     </div>
