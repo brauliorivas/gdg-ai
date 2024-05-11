@@ -7,6 +7,7 @@ import { NavBarItems } from "@/components/NavBarItems";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ModeToggle";
+import  ConsoleText  from "@/components/ConsoleText";
 
 export default function Home() {
   const [menu, setMenu] = useState(false);
@@ -37,9 +38,15 @@ export default function Home() {
         <div className="text-center">
           <div className="">
             <p className="text-white text-[120px] font-medium">Welcome To</p>
-            <p className="text-white text-[160px]  font-extrabold">
+            <p className="text-white text-[160px]  font-extrabold hidden">
               <span className="text-black">EL Puente</span>
             </p>
+            <div className="flex items-center justify-center">
+              <ConsoleText 
+                words={['El Puente', 'el puente', 'EL PUENTE']} 
+                colors={['black', 'black', 'black']} 
+              />
+            </div>
           </div>
           <Button
             onClick={(e) => {
