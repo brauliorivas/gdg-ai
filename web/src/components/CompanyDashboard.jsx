@@ -111,7 +111,7 @@ export default function CompanyDashboard({ data }) {
 
   return (
     <div className="h-screen bg-[rgb(221,218,216)] overflow-hidden dark:bg-[rgb(27,27,27)] ">
-      <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
+      <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] transform-all duration-300 ease-in-out ${Theme ? "top-[0px]" : ""}`}>
         <ModeToggle/>
         <div onClick={toggle1} className={`bg-[rgb(252,252,252)] dark:bg-[rgb(27,27,27)] w-full text-center rounded cursor-pointer `}>▼</div>
       </div>

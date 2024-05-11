@@ -61,7 +61,7 @@ export default function Home() {
         </div>
       </div>
       <div className="p-6 rounded-xl shadow-2xl bg-white dark:bg-[rgb(0,0,0)] -z-1000">
-        <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
+        <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] transform-all duration-300 ease-in-out ${Theme ? "top-[0px]" : ""}`}>
             <ModeToggle/>
             <div onClick={toggle1} className={`bg-[rgb(252,252,252)] dark:bg-[rgb(0,0,0)] w-full text-center rounded cursor-pointer `}>▼</div>
         </div>
