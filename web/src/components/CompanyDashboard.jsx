@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "./ui/button";
-import MultipleTextInput from "./MultipleTextInput";
+import InfoFilter from "./InfoFilter";
 import Message from "./Message";
 import Puente from "./Puente";
 import { Card, CardContent } from "@/components/ui/card"
@@ -189,7 +189,8 @@ export default function CompanyDashboard({ data }) {
           {/*filtros*/}
           <div className="  p-2 h-[50%]">
             <p>Filters</p>
-            <MultipleTextInput values={filters} setValues={setFilters} />
+            <InfoFilter name={'Language'} values={filters} setValues={setFilters}/>
+            <InfoFilter name={'Framework'} values={filters} setValues={setFilters}/>
           </div>
           {/* Recomendaciones */}
           <div className=" p-2 h-[50%] flex flex-col items-center">
