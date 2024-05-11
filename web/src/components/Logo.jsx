@@ -5,10 +5,21 @@ export function Logo(){
                 <tbody>
                 <tr>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell1"></div>
                     </td>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell1"></div>
+                    </td>
+                    <td className="pt-1 pl-1 pr-1">
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell2"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td className="pt-1 pl-1">
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell1"></div>
+                    </td>
+                    <td className="pt-1 pl-1">
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell2"></div>
                     </td>
                     <td className="pt-1 pl-1 pr-1">
                         <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
@@ -16,18 +27,7 @@ export function Logo(){
                 </tr>
                 <tr>
                     <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
-                    </td>
-                    <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
-                    </td>
-                    <td className="pt-1 pl-1 pr-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td className="pt-1 pl-1">
-                        <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>
+                        <div className="h-3 w-3 bg-black dark:bg-white table-cell2"></div>
                     </td>
                     <td className="pt-1 pl-1">
                         <div className="h-3 w-3 bg-black dark:bg-white table-cell"></div>

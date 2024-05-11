@@ -33,13 +33,33 @@
     animation: spin 4s linear infinite;
     animation-play-state: paused;
   }
+  .table-cell1 {
+    animation: spin 8s linear infinite;
+    animation-play-state: paused;
+  }
+  .table-cell2 {
+    animation: spin 12s linear infinite;
+    animation-play-state: paused;
+  }
   
   .table-cell:nth-child(odd) {
     animation-delay: 0s;
   }
+  .table-cell1:nth-child(odd) {
+    animation-delay: 2s;
+  }
+  .table-cell2:nth-child(odd) {
+    animation-delay: 4s;
+  }
   
   .table-cell:nth-child(even) {
     animation-delay: 1s;
+  }
+  .table-cell1:nth-child(even) {
+    animation-delay: 4s;
+  }
+  .table-cell2:nth-child(even) {
+    animation-delay: 8s;
   }
   
   @keyframes spin-pause {
@@ -62,6 +82,12 @@
   
   .table-cell {
     animation: spin-pause 7s ease-in-out infinite;
+  }
+  .table-cell1 {
+    animation: spin-pause 11s ease-in-out infinite;
+  }
+  .table-cell2 {
+    animation: spin-pause 15s ease-in-out infinite;
   }
   
   @layer base {
