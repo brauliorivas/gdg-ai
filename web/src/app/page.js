@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Register from "@/components/Register";
-import Puente from "@/components/Puente";
 import { NavBarItems } from "@/components/NavBarItems";
 import { Logo } from "@/components/Logo";
 import {LogoXL}   from "@/components/LogoXL";

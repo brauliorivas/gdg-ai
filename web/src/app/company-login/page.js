@@ -26,12 +26,12 @@ export default function CompanyLogin() {
     setTheme(!Theme);
   };
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
+    <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)] dark:bg-[rgb(27,27,27)] ">
       <div className={`flex flex-col items-center justify-center absolute right-0 -top-[40px] ${Theme ? "top-[0px]" : ""}`}>
         <ModeToggle/>
-        <div onClick={toggle1} className={`bg-[rgb(252,252,252)] w-full text-center rounded cursor-pointer `}>▼</div>
+        <div onClick={toggle1} className={`bg-[rgb(252,252,252)] dark:bg-[rgb(27,27,27)] w-full text-center rounded cursor-pointer `}>▼</div>
       </div>
-      <div className="p-10 rounded-xl shadow-2xl bg-white">
+      <div className="p-10 rounded-xl shadow-2xl bg-white dark:bg-[rgb(0,0,0)]">
       <LogoXL />
       <div className="mt-5">
         <div>
