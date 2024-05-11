@@ -7,6 +7,7 @@ import { Button } from "./ui/button";
 import InfoFilter from "./InfoFilter";
 import Message from "./Message";
 import Puente from "./Puente";
+import { Logo } from "@/components/Logo";
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -114,7 +115,7 @@ export default function CompanyDashboard({ data }) {
     <div className="h-screen bg-[rgb(221,218,216)]">
       {/*cabecera*/}
       <div className="flex justify-between items-center h-[10vh] px-4 bg-[rgb(252,118,0)]">
-        <Puente height={50} />
+        <Logo />
         {/* Avatar */}
         <div>
           <Avatar>
