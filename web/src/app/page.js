@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center bg-[rgb(221,218,216)]">
-      <div className={`bg-[rgb(252,118,00)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}
+      <div className={`bg-[rgb(252,118,00)] dark:bg-[rgb(0,0,0)] w-full h-screen items-center justify-center flex absolute transition-all duration-1000 ease-in-out ${menu ? "top-[-2000px]" : "top-0"}`}
       >
         <div className="absolute top-0 right-0 flex justify-between w-full px-6">
           <div className="flex items-center justify-center">
@@ -44,9 +44,9 @@ export default function Home() {
             <div className="flex items-center justify-center">
               <ConsoleText 
                 words={['El Puente', 'el puente', 'EL PUENTE']} 
-                colors={['black', 'black', 'black']} 
               />
             </div>
+            
           </div>
           <Button
             onClick={(e) => {

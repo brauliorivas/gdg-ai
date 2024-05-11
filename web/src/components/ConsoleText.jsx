@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function ConsoleText({ words, colors }) {
+export default function ConsoleText({ words}) {
   const [currentWord, setCurrentWord] = useState('');
   const [isShowing, setIsShowing] = useState(true);
 
@@ -26,7 +26,6 @@ export default function ConsoleText({ words, colors }) {
         } else {
           if (letterCount === 0) {
             isAdding = true;
-            colorIndex = (colorIndex + 1) % colors.length;
             wordIndex = (wordIndex + 1) % words.length;
             updateText();
           } else {
@@ -44,11 +43,11 @@ export default function ConsoleText({ words, colors }) {
     }, 400);
 
     return () => clearInterval(interval);
-  }, [words, colors]);
+  }, [words]);
 
   return (
-    <div className='relative mx-auto  text-center text-[160px] font-bold text-white' style={{ fontFamily: 'Khula' }}>
-      <span style={{ color: colors[0] }}>{currentWord}</span>
+    <div className='relative mx-auto  text-center text-[160px] font-bold text-black dark:text-[rgb(252,118,00)] ' style={{ fontFamily: 'Khula' }}>
+      <span >{currentWord}</span>
       <div className={`inline-block relative top-[-0.14em] ml-2.5 ${isShowing ? '' : 'opacity-0'}`}>
         &#95;
       </div>

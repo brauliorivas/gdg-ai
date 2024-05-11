@@ -11,17 +11,8 @@
     padding: 0;
     box-sizing: border-box;
   }
-  @keyframes Movimiento {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .movimiento1{
-    animation: Movimiento 2s linear infinite;
-  }
+
+  
   @layer base {
     :root {
       --background: 0 0% 100%;
