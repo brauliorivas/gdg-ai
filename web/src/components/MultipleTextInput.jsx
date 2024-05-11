@@ -9,7 +9,9 @@ export default function MultipleTextInput({ values, setValues}) {
     return (
     <div className="border-black border-b-2  p-2 w-full outline-none">
         {values.map((value, index) => (
-            <div key={index}>
+            <div key={index} className="border-black px-2 rounded bg-white w-fit my-1 cursor-pointer" onClick={() => {
+              setValues(values.filter((_, i) => i !== index));
+            }}>
                 {value}
             </div>
         ))}
