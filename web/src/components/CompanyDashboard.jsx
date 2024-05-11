@@ -195,18 +195,18 @@ export default function CompanyDashboard({ data }) {
         </div>
         <div className='w-[20%]'>
           {/*filtros*/}
-          <div className="p-2 h-[20%]">
+          <div className="p-2 h-[30%] overflow-y-auto">
             <p className=' dark:text-[rgb(252,118,0)] text-center text-[30px] font-bold' >Filters</p>
             <MultipleTextInput values={filters} setValues={setFilters}/>
           </div>
-          <div className="p-2 flex flex-col items-center">
-            <div className='h-[10%]'>
+          <div className="p-2 flex flex-col items-center h-[70%] ">
+            <div className=''>
               <Button onClick={(e) => {
                 e.preventDefault();
                 recommend();
               }}>Recommend</Button>    
             </div>
-            <div className='mt-4 overflow-y-auto '>
+            <div className='mt-4 overflow-y-auto w-full'>
               {
                 recommendations.sort((a, b) => b.score_cv - a.score_cv).map((recommendations, index) => (
                   <div key={index} className='bg-white my-5 border-2 p-4 rounded-xl border-black dark:bg-[rgb(0,0,0)] shadow-xl'>
